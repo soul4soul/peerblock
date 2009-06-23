@@ -2,7 +2,7 @@
 
 = Introduction =
 
-The original base Peer Guardian code was in somewhat rough shape, including (especially?) the Visual Studio project-files.  This page should help you get everything compiling successfully.
+The original base Peer Guardian 2 code was in somewhat rough shape, including (especially?) the Visual Studio project-files.  This page should help you get everything compiling successfully.
 
 
 = Prerequisites =
@@ -14,3 +14,21 @@ In addition to the code, there are some additional things you'll need to have in
   * MS Windows SDK (free download from Microsoft)
   * MS Windows DDK (free download from Microsoft) (only required if you want to build the filter-driver as well)
 
+
+= Visual C++ 2008 Express Setup =
+
+You'll need to do a couple funky things to get Visual C++ 2008 Express to be able to compile to 64-bit targets.  If you have a retail/academic version of Visual Studio these steps should not be necessary, however they _are_ with the free Express edition.
+
+See this page for more details: [http://jenshuebel.wordpress.com/2009/02/12/visual-c-2008-express-edition-and-64-bit-targets/ Visual C++ 2008 Express Edition and 64-bit Targets].  Most usefully, scroll down to near the bottom of the page and look for Xia Wei's post linking to a .zip file.  What you'll need to do is to download and install the Windows SDK (yes, even though Visual C++ installs its own copy as well you'll need to download and install it again), then run the .bat file included in Xia Wei's .zip.  Note that if you installed either Visual C++ or the Windows SDK to a location other than the default, you'll need to edit the .bat file to include the correct path-names.
+
+
+= PeerBlock Project Configuration = 
+
+Currently, the project-files for PeerBlock contain hardcoded references to Windows SDK/DDK pathnames on my (MarkSide's) computer.  At some point I'll update these to make use of environment variables or something instead, but for now they're hardcoded.  So what you'll need to do is edit the inc/lib directories in the project-settings for each and every project in the solution, and change them to whatever directories you've installed them in on your machine.
+
+
+= Done? = 
+
+In theory, once you've performed the above steps you should be able to compile PeerBlock.  Release/Debug versions are for Windows XP, Release (Vista) and Debug (Vista) are for Windows Vista / Windows 7 (and probably Windows Server 2003 / 2008 as well).  Win32 builds are for 32-bit systems, x64 is for 64-bit.  
+
+Note that the Win32 Debug and Debug (Vista) builds aren't working yet, so if you try to build those but it fails it's probably not your fault...
