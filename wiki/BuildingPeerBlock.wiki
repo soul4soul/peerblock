@@ -1,0 +1,16 @@
+#summary Instructions on building/compiling PeerBlock.
+
+= Introduction =
+
+The original base Peer Guardian code was in somewhat rough shape, including (especially?) the Visual Studio project-files.  This page should help you get everything compiling successfully.
+
+
+= Prerequisites =
+
+In addition to the code, there are some additional things you'll need to have installed on your machine:
+
+  * Subversion Client (I like TortoiseSVN)
+  * MS Visual C++ 2008 (Express Edition is free, and works quite well)
+  * MS Windows SDK (free download from Microsoft)
+  * MS Windows DDK (free download from Microsoft) (only required if you want to build the filter-driver as well)
+
