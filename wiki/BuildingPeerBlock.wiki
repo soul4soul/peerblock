@@ -1,4 +1,5 @@
 #summary Instructions on building/compiling PeerBlock.
+#labels Featured
 
 = Introduction =
 
