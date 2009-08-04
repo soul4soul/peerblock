@@ -33,38 +33,30 @@ extern TraceLog g_tlog;
 #define DO_STRINGIFY(x) #x
 #define STRINGIFY(x) DO_STRINGIFY(x)
 
-// BUILDDATE: YYMMDDnnnn, where YY MM and DD are the year, month, and day of this build, and nn is for build-number
-//#define BUILDDATE 907280071	// PB_REV
-#define BUILDDATE 998010075	// PB_REV
+#define BUILDDATE 70602
 
 #ifdef _WIN32_WINNT
 #ifdef _WIN64
 // nt x64 build
-#define BUILDTYPE 40
+#define BUILDTYPE 30
 #else
 // nt build
-#define BUILDTYPE 30
-#endif
-#else
-#ifdef _WIN64
-// 9x x64 build
 #define BUILDTYPE 20
+#endif
 #else
 // 9x build
 #define BUILDTYPE 10
 #endif
-#endif
 
-#define BUILDNUM (BUILDTYPE*(unsigned long long)1000000000+BUILDDATE)
+#define BUILDNUM (BUILDTYPE*100000+BUILDDATE)
 #define BUILDSTR STRINGIFY(BUILDTYPE) STRINGIFY(BUILDDATE)
 
-// TODO:  make a special page to display for update-found purposes; pass in build-string?
-static const char *g_agent="PeerBlock/0.9.2.72";	// PB_REV r71
-static const LPCTSTR g_homepage=_T("http://www.peerblock.com");		// displayed in web-browser if new program version is found
-static const LPCTSTR g_updateserver=_T("http://www.peerblock.com");	// displayed in Update UI
+static const char *g_agent="PeerGuardian/2.0";
+static const LPCTSTR g_homepage=_T("http://peerguardian.sourceforge.net");
+static const LPCTSTR g_updateserver=_T("http://peerguardian.sourceforge.net");
 
-const unsigned long long g_build=BUILDNUM;
-static const char *g_updateurl="http://forums.peerblock.com/pb_update.php?build="BUILDSTR;	// TODO:  additional URLs for test- and dev- updates
+const unsigned int g_build=BUILDNUM;
+static const char *g_updateurl="http://peerguardian.sourceforge.net/update.php?build="BUILDSTR;
 
 static const UINT TIMER_COUNTDOWN=1;
 static unsigned short g_countdown;
@@ -580,7 +572,6 @@ public:
 										TRACEV("[UpdateThread] [_Process]    code: [200]");
 										if(data->list) 
 										{
-											TRACEV("[UpdateThread] [_Process]    data is a list");
 											try 
 											{
 												TRACEV("[UpdateThread] [_Process]    moving tempfile to real file location");
@@ -610,23 +601,14 @@ public:
 										}
 										else 
 										{
-											TRACEV("[UpdateThread] [_Process]    data is not a list, must be program update");
+											TRACEV("[UpdateThread] [_Process]    list not found");
 											try 
 											{
-												unsigned long long b=boost::lexical_cast<unsigned long long>(build);
+												unsigned int b=boost::lexical_cast<unsigned int>(build);
 
 												if(list) 
 												{
-													if (b > g_build)
-													{
-														TRACEI("[UpdateThread] [_Process]    found list var; new program version found");
-														updatepg = true;
-													}
-													else
-													{
-														TRACEI("[UpdateThread] [_Process]    found list var; no new program version found");
-														updatepg = false;
-													}
+													TRACEV("[UpdateThread] [_Process]    now found list? update available?");
 													const tstring str=LoadString((b>g_build)?IDS_UPDATEAVAILABLE:IDS_NONEAVAILABLE);
 
 													lvi.iItem=data->index;
@@ -636,16 +618,8 @@ public:
 												}
 												else 
 												{
-													if (b > g_build)
-													{
-														TRACEI("[UpdateThread] [_Process]    no list var; new program version found");
-														updatepg = true;
-													}
-													else
-													{
-														TRACEI("[UpdateThread] [_Process]    no list var; no new program version found");
-														updatepg = false;
-													}
+													TRACEV("[UpdateThread] [_Process]    still no list");
+													updatepg=(b>g_build);
 												}
 											}
 											catch(...) 
@@ -781,7 +755,7 @@ public:
 
 			if(!aborted && updatepg && MessageBox(hwnd, IDS_PGUPDATETEXT, IDS_PGUPDATE, MB_ICONQUESTION|MB_YESNO)==IDYES)
 			{
-				TRACEI("[UpdateThread] [_Process]    program update found; showing homepage");
+				TRACEI("[UpdateThread] [_Process]    showing homepage");
 				ShellExecute(NULL, NULL, g_homepage, NULL, NULL, SW_SHOWNORMAL);
 			}
 		}
