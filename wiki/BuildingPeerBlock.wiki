@@ -3,7 +3,7 @@
 
 = Introduction =
 
-The original base Peer Guardian 2 code was in somewhat rough shape, including (especially?) the Visual Studio project-files.  This page should help you get everything compiling successfully.
+The original base Peer Guardian 2 code was in somewhat rough shape, including (especially?) the Visual Studio project-files.  This page should help you get everything compiling PeerBlock more successfully.
 
 
 = Prerequisites =
@@ -12,8 +12,10 @@ In addition to the code, there are some additional things you'll need to have in
 
   * Subversion Client (I like TortoiseSVN)
   * MS Visual C++ 2008 (Express Edition is free, and works quite well)
-  * MS Windows SDK (free download from Microsoft)
-  * MS Windows DDK (free download from Microsoft) (only required if you want to build the filter-driver as well)
+  * MS Windows SDK, v6001.1600 or newer (free download from Microsoft)
+  * MS Windows DDK, v6001.16002 for Windows Server 2008 (free download from Microsoft) (only required to build the filter-driver - not necessary if you're just building the peerblock.exe user-mode component)
+
+Additionally, if you'd like to build the Installer package, you'll need to download the [http://files.jrsoftware.org/ispack/isdl.htm#qsp InnoSetup "QuickStart Pack"] (ispack).
 
 
 = Visual C++ 2008 Express Setup =
@@ -25,11 +27,13 @@ See this page for more details: [http://jenshuebel.wordpress.com/2009/02/12/visu
 
 = PeerBlock Project Configuration = 
 
-Currently, the project-files for PeerBlock contain hardcoded references to Windows SDK/DDK pathnames on my (MarkSide's) computer.  At some point I'll update these to make use of environment variables or something instead, but for now they're hardcoded.  So what you'll need to do is edit the inc/lib directories in the project-settings for each and every project in the solution, and change them to whatever directories you've installed them in on your machine.
+To build the pbfilter project (i.e. pbfilter.sys, our filter-driver) you'll need to set up an environment variable to point to the directory into which you've installed the DDK.  Create a "User" environment-variable called "PB_WINDDK", and set it equal to the DDK path.
 
 
 = Done? = 
 
-In theory, once you've performed the above steps you should be able to compile PeerBlock.  Release/Debug versions are for Windows XP, Release (Vista) and Debug (Vista) are for Windows Vista / Windows 7 (and probably Windows Server 2003 / 2008 as well).  Win32 builds are for 32-bit systems, x64 is for 64-bit.  
+In theory, once you've performed the above steps you should be able to compile PeerBlock.  Release/Debug versions are for Windows XP/2000, Release (Vista) and Debug (Vista) are for Windows Vista / Windows 7 (and Windows Server 2003 / 2008 as well, I believe).  Win32 builds are for 32-bit systems, x64 is for 64-bit.
 
-Note that the Win32 Debug and Debug (Vista) builds aren't working yet, so if you try to build those but it fails it's probably not your fault...
+In addition to being able to compile through Visual Studio, the build_all.cmd batch-file should be able to automatically launch a rebuild of the entire source tree (all 4 release variants), as well as of the Installer package.
+
+Note that the Win32 Debug and Debug (Vista) builds aren't working yet, so if you try to build those but it fails it's probably not your fault...  A patch for this would be welcome, of course!
