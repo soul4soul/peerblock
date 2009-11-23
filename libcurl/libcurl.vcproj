@@ -3,9 +3,9 @@
 	ProjectType="Visual C++"
 	Version="9.00"
 	Name="libcurl"
-	ProjectGUID="{8ADB2B86-8213-41EE-9438-D3F8A7A37C33}"
+	ProjectGUID="{3577CB3D-A0FD-4970-9FF3-3D80E76E794C}"
 	RootNamespace="libcurl"
-	Keyword="ManagedCProj"
+	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
@@ -24,8 +24,7 @@
 			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
 			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="4"
-			CharacterSet="2"
-			ManagedExtensions="0"
+			CharacterSet="0"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -45,17 +44,16 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="include;src;..\zlib"
-				PreprocessorDefinitions="WIN32;_DEBUG;BUILDING_LIBCURL;CURL_STATICLIB;CURL_DISABLE_TFTP;CURL_DISABLE_TELNET;CURL_DISABLE_LDAP;_WIN32_WINNT=0x0500"
+				AdditionalIncludeDirectories="..\zlib;include;lib"
+				PreprocessorDefinitions="WIN32;_DEBUG;HAVE_ZLIB_H;HAVE_ZLIB;HAVE_LIBZ;CURL_DISABLE_FILE;CURL_DISABLE_LDAP;CURL_DISABLE_TELNET;CURL_DISABLE_TFTP;ENABLE_IPV6;CURL_STATICLIB;BUILDING_LIBCURL;_WIN32_WINNT=0x0501;NTDDI_VERSION=NTDDI_WINXP"
 				StringPooling="true"
-				MinimalRebuild="false"
+				MinimalRebuild="true"
 				ExceptionHandling="0"
-				BasicRuntimeChecks="0"
+				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				EnableFunctionLevelLinking="true"
-				WarningLevel="0"
-				Detect64BitPortabilityProblems="false"
-				DebugInformationFormat="3"
+				UsePrecompiledHeader="0"
+				DebugInformationFormat="4"
 				CompileAs="1"
 			/>
 			<Tool
@@ -91,8 +89,7 @@
 			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
 			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="4"
-			CharacterSet="2"
-			ManagedExtensions="0"
+			CharacterSet="0"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -113,18 +110,16 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="include;src;..\zlib"
-				PreprocessorDefinitions="_DEBUG;BUILDING_LIBCURL;CURL_STATICLIB;CURL_DISABLE_TFTP;CURL_DISABLE_TELNET;CURL_DISABLE_LDAP;WIN64;_WIN32_WINNT=0x0502"
+				AdditionalIncludeDirectories="..\zlib;include;lib"
+				PreprocessorDefinitions="WIN32;_DEBUG;HAVE_ZLIB_H;HAVE_ZLIB;HAVE_LIBZ;CURL_DISABLE_FILE;CURL_DISABLE_LDAP;CURL_DISABLE_TELNET;CURL_DISABLE_TFTP;ENABLE_IPV6;CURL_STATICLIB;BUILDING_LIBCURL;_WIN32_WINNT=0x0502;NTDDI_VERSION=NTDDI_WS03SP1"
 				StringPooling="true"
-				MinimalRebuild="false"
+				MinimalRebuild="true"
 				ExceptionHandling="0"
-				BasicRuntimeChecks="0"
+				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				EnableFunctionLevelLinking="true"
-				WarningLevel="0"
-				Detect64BitPortabilityProblems="false"
+				UsePrecompiledHeader="0"
 				DebugInformationFormat="3"
-				CallingConvention="1"
 				CompileAs="1"
 			/>
 			<Tool
@@ -160,8 +155,7 @@
 			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
 			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="4"
-			CharacterSet="2"
-			ManagedExtensions="0"
+			CharacterSet="0"
 			WholeProgramOptimization="1"
 			>
 			<Tool
@@ -186,16 +180,14 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="true"
-				AdditionalIncludeDirectories="include;src;..\zlib"
-				PreprocessorDefinitions="WIN32;NDEBUG;BUILDING_LIBCURL;CURL_STATICLIB;CURL_DISABLE_TFTP;CURL_DISABLE_TELNET;CURL_DISABLE_LDAP;_WIN32_WINNT=0x0500"
+				AdditionalIncludeDirectories="..\zlib;include;lib"
+				PreprocessorDefinitions="WIN32;NDEBUG;HAVE_ZLIB_H;HAVE_ZLIB;HAVE_LIBZ;CURL_DISABLE_FILE;CURL_DISABLE_LDAP;CURL_DISABLE_TELNET;CURL_DISABLE_TFTP;ENABLE_IPV6;CURL_STATICLIB;BUILDING_LIBCURL;_WIN32_WINNT=0x0501;NTDDI_VERSION=NTDDI_WINXP"
 				StringPooling="true"
-				MinimalRebuild="false"
 				ExceptionHandling="0"
-				RuntimeLibrary="0"
+				RuntimeLibrary="2"
+				BufferSecurityCheck="false"
 				EnableFunctionLevelLinking="true"
-				WarningLevel="0"
-				Detect64BitPortabilityProblems="false"
-				DebugInformationFormat="0"
+				UsePrecompiledHeader="0"
 				CompileAs="1"
 			/>
 			<Tool
@@ -231,8 +223,7 @@
 			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
 			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="4"
-			CharacterSet="2"
-			ManagedExtensions="0"
+			CharacterSet="0"
 			WholeProgramOptimization="1"
 			>
 			<Tool
@@ -258,161 +249,14 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="true"
-				AdditionalIncludeDirectories="include;src;..\zlib"
-				PreprocessorDefinitions="NDEBUG;BUILDING_LIBCURL;CURL_STATICLIB;CURL_DISABLE_TFTP;CURL_DISABLE_TELNET;CURL_DISABLE_LDAP;WIN64;_WIN32_WINNT=0x0502"
+				AdditionalIncludeDirectories="..\zlib;include;lib"
+				PreprocessorDefinitions="WIN32;NDEBUG;HAVE_ZLIB_H;HAVE_ZLIB;HAVE_LIBZ;CURL_DISABLE_FILE;CURL_DISABLE_LDAP;CURL_DISABLE_TELNET;CURL_DISABLE_TFTP;ENABLE_IPV6;CURL_STATICLIB;BUILDING_LIBCURL;_WIN32_WINNT=0x0502;NTDDI_VERSION=NTDDI_WS03SP1"
 				StringPooling="true"
-				MinimalRebuild="false"
 				ExceptionHandling="0"
-				RuntimeLibrary="0"
+				RuntimeLibrary="2"
+				BufferSecurityCheck="false"
 				EnableFunctionLevelLinking="true"
-				WarningLevel="0"
-				Detect64BitPortabilityProblems="false"
-				DebugInformationFormat="0"
-				CallingConvention="1"
-				CompileAs="1"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release (Vista)|Win32"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="4"
-			CharacterSet="2"
-			ManagedExtensions="0"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				Optimization="2"
-				InlineFunctionExpansion="2"
-				EnableIntrinsicFunctions="true"
-				FavorSizeOrSpeed="1"
-				OmitFramePointers="true"
-				AdditionalIncludeDirectories="include;src;..\zlib"
-				PreprocessorDefinitions="WIN32;NDEBUG;BUILDING_LIBCURL;CURL_STATICLIB;CURL_DISABLE_TFTP;CURL_DISABLE_TELNET;CURL_DISABLE_LDAP;_WIN32_WINNT=0x0600"
-				StringPooling="true"
-				MinimalRebuild="false"
-				ExceptionHandling="0"
-				RuntimeLibrary="0"
-				EnableFunctionLevelLinking="true"
-				WarningLevel="0"
-				Detect64BitPortabilityProblems="false"
-				DebugInformationFormat="0"
-				CompileAs="1"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release (Vista)|x64"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="4"
-			CharacterSet="2"
-			ManagedExtensions="0"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="3"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				Optimization="2"
-				InlineFunctionExpansion="2"
-				EnableIntrinsicFunctions="true"
-				FavorSizeOrSpeed="1"
-				OmitFramePointers="true"
-				AdditionalIncludeDirectories="include;src;..\zlib"
-				PreprocessorDefinitions="NDEBUG;BUILDING_LIBCURL;CURL_STATICLIB;CURL_DISABLE_TFTP;CURL_DISABLE_TELNET;CURL_DISABLE_LDAP;WIN64;_WIN32_WINNT=0x0600"
-				StringPooling="true"
-				MinimalRebuild="false"
-				ExceptionHandling="0"
-				RuntimeLibrary="0"
-				EnableFunctionLevelLinking="true"
-				WarningLevel="0"
-				Detect64BitPortabilityProblems="false"
-				DebugInformationFormat="0"
-				CallingConvention="1"
+				UsePrecompiledHeader="0"
 				CompileAs="1"
 			/>
 			<Tool
@@ -453,291 +297,235 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\src\amigaos.c"
+				RelativePath=".\lib\base64.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\base64.c"
+				RelativePath=".\lib\connect.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\connect.c"
+				RelativePath=".\lib\content_encoding.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\content_encoding.c"
+				RelativePath=".\lib\cookie.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\cookie.c"
+				RelativePath=".\lib\dict.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\curl_addrinfo.c"
+				RelativePath=".\lib\easy.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\curl_sspi.c"
+				RelativePath=".\lib\escape.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\dict.c"
+				RelativePath=".\lib\file.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\easy.c"
+				RelativePath=".\lib\formdata.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\escape.c"
+				RelativePath=".\lib\ftp.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\file.c"
+				RelativePath=".\lib\getenv.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\formdata.c"
+				RelativePath=".\lib\getinfo.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\ftp.c"
+				RelativePath=".\lib\gtls.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\getenv.c"
+				RelativePath=".\lib\hash.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\getinfo.c"
+				RelativePath=".\lib\hostares.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\gtls.c"
+				RelativePath=".\lib\hostasyn.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\hash.c"
+				RelativePath=".\lib\hostip.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\hostares.c"
+				RelativePath=".\lib\hostip4.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\hostasyn.c"
+				RelativePath=".\lib\hostip6.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\hostip.c"
+				RelativePath=".\lib\hostsyn.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\hostip4.c"
+				RelativePath=".\lib\hostthre.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\hostip6.c"
+				RelativePath=".\lib\http.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\hostsyn.c"
+				RelativePath=".\lib\http_chunks.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\hostthre.c"
+				RelativePath=".\lib\http_digest.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\http.c"
+				RelativePath=".\lib\http_negotiate.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\http_chunks.c"
+				RelativePath=".\lib\http_ntlm.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\http_digest.c"
+				RelativePath=".\lib\if2ip.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\http_negotiate.c"
+				RelativePath=".\lib\inet_ntop.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\http_ntlm.c"
+				RelativePath=".\lib\inet_pton.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\if2ip.c"
+				RelativePath=".\lib\ldap.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\inet_ntop.c"
+				RelativePath=".\lib\llist.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\inet_pton.c"
+				RelativePath=".\lib\md5.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\krb4.c"
+				RelativePath=".\lib\memdebug.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\krb5.c"
+				RelativePath=".\lib\mprintf.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\ldap.c"
+				RelativePath=".\lib\multi.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\llist.c"
+				RelativePath=".\lib\netrc.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\md5.c"
+				RelativePath=".\lib\nwos.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\memdebug.c"
+				RelativePath=".\lib\parsedate.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\mprintf.c"
+				RelativePath=".\lib\progress.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\multi.c"
+				RelativePath=".\lib\qssl.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\netrc.c"
+				RelativePath=".\lib\select.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\nss.c"
+				RelativePath=".\lib\sendf.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\nwlib.c"
+				RelativePath=".\lib\share.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\nwos.c"
+				RelativePath=".\lib\socks.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\parsedate.c"
+				RelativePath=".\lib\speedcheck.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\progress.c"
+				RelativePath=".\lib\splay.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\qssl.c"
+				RelativePath=".\lib\sslgen.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\rawstr.c"
+				RelativePath=".\lib\ssluse.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\security.c"
+				RelativePath=".\lib\strequal.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\select.c"
+				RelativePath=".\lib\strerror.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\sendf.c"
+				RelativePath=".\lib\strtok.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\share.c"
+				RelativePath=".\lib\strtoofft.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\slist.c"
+				RelativePath=".\lib\telnet.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\socks.c"
+				RelativePath=".\lib\tftp.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\socks_gssapi.c"
+				RelativePath=".\lib\timeval.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\socks_sspi.c"
+				RelativePath=".\lib\transfer.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\speedcheck.c"
+				RelativePath=".\lib\url.c"
 				>
 			</File>
 			<File
-				RelativePath=".\src\splay.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\ssh.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\sslgen.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\ssluse.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\strdup.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\strequal.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\strerror.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\strtok.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\strtoofft.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\telnet.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\tftp.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\timeval.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\transfer.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\url.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\version.c"
+				RelativePath=".\lib\version.c"
 				>
 			</File>
 		</Filter>
@@ -747,107 +535,207 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\src\amigaos.h"
+				RelativePath=".\lib\base64.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\arpa_telnet.h"
+				RelativePath=".\lib\config.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\base64.h"
+				RelativePath=".\lib\connect.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\ca-bundle.h"
+				RelativePath=".\lib\content_encoding.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\config-amigaos.h"
+				RelativePath=".\lib\cookie.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\config-mac.h"
+				RelativePath=".\lib\curl_ldap.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\config-os400.h"
+				RelativePath=".\lib\dict.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\config-riscos.h"
+				RelativePath=".\lib\escape.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\config-symbian.h"
+				RelativePath=".\lib\file.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\config-tpf.h"
+				RelativePath=".\lib\formdata.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\config-vms.h"
+				RelativePath=".\lib\ftp.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\config-win32.h"
+				RelativePath=".\lib\getinfo.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\config-win32ce.h"
+				RelativePath=".\lib\gtls.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\config.h"
+				RelativePath=".\lib\hash.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\connect.h"
+				RelativePath=".\lib\hostip.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\content_encoding.h"
+				RelativePath=".\lib\http.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\cookie.h"
+				RelativePath=".\lib\http_chunks.h"
 				>
 			</File>
+			<File
+				RelativePath=".\lib\http_digest.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\http_negotiate.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\http_ntlm.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\if2ip.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\inet_ntop.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\inet_pton.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\ldap.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\llist.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\md5.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\memdebug.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\netrc.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\parsedate.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\progress.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\qssl.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\select.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\sendf.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\share.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\socks.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\speedcheck.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\splay.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\sslgen.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\ssluse.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\strequal.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\strerror.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\strtok.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\strtoofft.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\telnet.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\tftp.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\timeval.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\transfer.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\url.h"
+				>
+			</File>
+			<File
+				RelativePath=".\lib\urldata.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Global Header Files"
+			>
 			<File
 				RelativePath=".\include\curl\curl.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\curl_addrinfo.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\curl_base64.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\curl_ldap.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\curl_md5.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\curl_memory.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\curl_sspi.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\curl\curlbuild.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\curl\curlrules.h"
 				>
 			</File>
 			<File
@@ -855,111 +743,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\curlx.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\dict.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\curl\easy.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\easyif.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\escape.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\file.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\formdata.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\ftp.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\getinfo.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\gtls.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\hash.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\hostip.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\http.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\http_chunks.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\http_digest.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\http_negotiate.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\http_ntlm.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\if2ip.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\inet_ntoa_r.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\inet_ntop.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\inet_pton.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\krb4.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\ldap.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\llist.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\md5.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\memdebug.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\memory.h"
 				>
 			</File>
 			<File
@@ -971,139 +755,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\multiif.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\netrc.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\nssg.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\parsedate.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\progress.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\qssl.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\rawstr.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\select.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\sendf.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\setup-os400.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\setup.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\setup_once.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\share.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\slist.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\sockaddr.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\speedcheck.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\splay.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\ssh.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\sslgen.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\ssluse.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\curl\stdcheaders.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\strdup.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\strequal.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\strerror.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\strtok.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\strtoofft.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\telnet.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\tftp.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\timeval.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\transfer.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\curl\typecheck-gcc.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\curl\types.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\url.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\urldata.h"
 				>
 			</File>
 		</Filter>

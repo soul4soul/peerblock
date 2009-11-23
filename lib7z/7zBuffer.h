@@ -4,11 +4,11 @@
 #define __7Z_BUFFER_H
 
 #include <stddef.h>
-#include "7zTypes.h"
+#include "Types.h"
 
 typedef struct _CSzByteBuffer
-{    
-	size_t Capacity;
+{
+  size_t Capacity;
   Byte *Items;
 }CSzByteBuffer;
 
