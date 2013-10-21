@@ -1034,7 +1034,11 @@ static INT_PTR Log_OnNotify(HWND hwnd, int idCtrl, NMHDR *nmh)
 
 									EmptyClipboard();
 
-									SetClipboardData(CF_UNICODETEXT, buf);
+									#ifdef _UNICODE
+										SetClipboardData(CF_UNICODETEXT, buf);
+									#else
+										SetClipboardData(CF_TEXT, buf);
+									#endif
 								}
 
 								CloseClipboard();
@@ -1271,7 +1275,7 @@ UINT CreateListViewPopUpMenu(HWND hwnd, NMHDR *nmh, NMITEMACTIVATE *nmia, LVITEM
 INT_PTR CALLBACK Log_DlgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	try {
 		TCHAR chBuf[256];
-		_stprintf_s(chBuf, _countof(chBuf), _T("[LogProc] [Log_DlgProc]    processing hwnd:[%p] msg:[%u]"), hwnd, msg);
+		_stprintf_s(chBuf, _countof(chBuf), _T("[LogProc] [Log_DlgProc]    processing hwnd:[%p] msg:[%d]"), hwnd, msg);
 		g_tlog.LogMessage(chBuf, TRACELOG_LEVEL_DEBUG);
 
 		switch(msg) {

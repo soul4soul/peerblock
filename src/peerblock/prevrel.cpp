@@ -378,6 +378,7 @@ void PerformPrevRelUpdates(HWND _hwnd)
 	{
 		TRACEW("[mainproc] [PerformPrevRelUpdates]    Checking for I-Blocklist Subscription list URL params (r653)");
 
+		vector<DynamicList> tempList;
 		ListUrls listUrls;
 		listUrls.Init();
 		tstring username;
